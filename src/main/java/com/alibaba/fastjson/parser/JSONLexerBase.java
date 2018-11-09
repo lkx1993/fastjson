@@ -67,21 +67,21 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
 
     public int                               matchStat          = UNKNOWN;
 
-    private final static ThreadLocal<char[]> SBUF_LOCAL         = new ThreadLocal<char[]>();
+    private final static ThreadLocal<char[]> SBUF_LOCAL         = new ThreadLocal<char[]>(); //todo 跟当前线程绑定的,这个的作用是啥呢
 
     protected String                         stringDefaultValue = null;
 
     public JSONLexerBase(int features){
         this.features = features;
 
-        if ((features & Feature.InitStringFieldAsEmpty.mask) != 0) { //位与运算
+        if ((features & Feature.InitStringFieldAsEmpty.mask) != 0) { //todo 位与二进制运算,这个的作用是啥呢
             stringDefaultValue = "";
         }
 
         sbuf = SBUF_LOCAL.get();
 
         if (sbuf == null) {
-            sbuf = new char[512];
+            sbuf = new char[512]; //todo 是为了性能吗
         }
     }
 

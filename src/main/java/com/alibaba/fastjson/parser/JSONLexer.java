@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.TimeZone;
-
+/** json分析器 */
 public interface JSONLexer {
 
     char EOI            = 0x1A;

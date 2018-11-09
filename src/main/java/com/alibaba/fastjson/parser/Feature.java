@@ -139,6 +139,7 @@ public enum Feature {
     ;
 
     Feature(){
+        //Feature是一个枚举, mask的值来源于该枚举的 = (1 << ordinal()); //<< 左移运算符，num << 1,相当于num乘以2 ,右移运算符，num >> 1,相当于num除以2
         mask = (1 << ordinal());
     }
 
