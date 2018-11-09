@@ -131,7 +131,7 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
     }
     
     public static Object parse(String text) {
-        return parse(text, DEFAULT_PARSER_FEATURE);
+        return parse(text, DEFAULT_PARSER_FEATURE); //todo 1.DEFAULT_PARSER_FEATURE=989 ???
     }
 
     /**
@@ -147,11 +147,12 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
      * @since 1.2.38
      */
     public static Object parse(String text, ParserConfig config, int features) {
+        //todo parse这个方法套了3层,参数一层比一层少,可以做到比较好的兼容性
         if (text == null) {
             return null;
         }
 
-        DefaultJSONParser parser = new DefaultJSONParser(text, config, features);
+        DefaultJSONParser parser = new DefaultJSONParser(text, config, features); //todo 目前看到的只有这一个JSONParser,
         Object value = parser.parse();
 
         parser.handleResovleTask(value);
@@ -162,7 +163,7 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
     }
 
     public static Object parse(String text, int features) {
-        return parse(text, ParserConfig.getGlobalInstance(), features);
+        return parse(text, ParserConfig.getGlobalInstance(), features); //todo 2.ParserConfig.getGlobalInstance()这个方法获取的是静态变量,为什么还要写一个方法而不直接调用呢
     }
 
     public static Object parse(byte[] input, Feature... features) {

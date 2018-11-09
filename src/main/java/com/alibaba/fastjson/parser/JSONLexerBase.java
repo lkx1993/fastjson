@@ -74,7 +74,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     public JSONLexerBase(int features){
         this.features = features;
 
-        if ((features & Feature.InitStringFieldAsEmpty.mask) != 0) {
+        if ((features & Feature.InitStringFieldAsEmpty.mask) != 0) { //位与运算
             stringDefaultValue = "";
         }
 
